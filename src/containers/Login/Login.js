@@ -1,4 +1,8 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { login } from '../../modules/users/actions';
+import * as fromUsers from '../../modules/users/reducer';
 
 class Login extends React.Component {
   input = null;
@@ -10,11 +14,15 @@ class Login extends React.Component {
     if (!value.trim()) {
       return;
     }
-
+    this.props.login(value);
     this.input.value = '';
   };
 
   render() {
+    if (this.props.isAuthenticated) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <React.Fragment>
         <h1>Login</h1>
@@ -31,4 +39,13 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+  isAuthenticated: fromUsers.isAuthenticated(state.users),
+});
+
+const mapDispatchToProps = { login };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Login);
