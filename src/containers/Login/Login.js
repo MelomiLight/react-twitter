@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login } from '../../modules/users/actions';
+import { login, signin } from '../../modules/users/actions';
 import * as fromUsers from '../../modules/users/reducer';
 
 class Login extends React.Component {
@@ -43,7 +43,7 @@ const mapStateToProps = state => ({
   isAuthenticated: fromUsers.isAuthenticated(state.users),
 });
 
-const mapDispatchToProps = { login };
+const mapDispatchToProps = { login, signin };
 
 export default connect(
   mapStateToProps,
