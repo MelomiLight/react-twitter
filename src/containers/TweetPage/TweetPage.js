@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { logout } from '../../modules/users/actions';
 import { createTweet } from '../../modules/tweets/actions';
 import * as fromUser from '../../modules/users/reducer';
 import * as fromTweets from '../../modules/tweets/reducer';
+import Header from '../../components/Header';
 import TweetInput from '../../components/TweetInput';
 import Tweet from '../../components/Tweet';
 import Timeline from '../../components/Timeline';
@@ -24,7 +26,7 @@ class TweetPage extends React.Component {
   };
 
   render() {
-    const { tweet, replies, activeUser } = this.props;
+    const { tweet, replies, activeUser, logout } = this.props;
     const hasReplies = replies.length > 0;
 
     if (!tweet) {
@@ -33,6 +35,7 @@ class TweetPage extends React.Component {
 
     return (
       <div>
+        <Header user={activeUser} onClick={logout} />
         <Tweet {...tweet} highlighted />
         {hasReplies && (
           <Timeline>
@@ -53,7 +56,7 @@ const mapStateToProps = (state, { match: { params } }) => ({
   replies: fromTweets.getRepliesById(state.tweets, params.tweetId),
 });
 
-const mapDispatchToProps = { createTweet };
+const mapDispatchToProps = { createTweet, logout };
 
 export default connect(
   mapStateToProps,
