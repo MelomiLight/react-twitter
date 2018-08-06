@@ -22,7 +22,7 @@ class Home extends React.Component {
     const { activeUser, logout, tweets, tweetsById } = this.props;
 
     return (
-      <div>
+      <React.Fragment>
         <Header user={activeUser} onClick={logout} />
         <TweetInput onSubmit={this.onSubmit} />
         <Timeline>
@@ -34,7 +34,7 @@ class Home extends React.Component {
             />
           ))}
         </Timeline>
-      </div>
+      </React.Fragment>
     );
   }
 }

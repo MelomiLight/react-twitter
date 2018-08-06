@@ -34,7 +34,7 @@ class TweetPage extends React.Component {
     }
 
     return (
-      <div>
+      <React.Fragment>
         <Header user={activeUser} onClick={logout} />
         <Tweet {...tweet} highlighted />
         {hasReplies && (
@@ -45,7 +45,7 @@ class TweetPage extends React.Component {
           </Timeline>
         )}
         {activeUser && <TweetInput onSubmit={this.onSubmit} />}
-      </div>
+      </React.Fragment>
     );
   }
 }
