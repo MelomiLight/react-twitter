@@ -16,7 +16,7 @@ const Layout = ({ classes, children }) => (
     <CssBaseline />
     <Header />
     <Grid container justify="center" className={classes.page}>
-      <Grid item xs={11} sm={8} md={5}>
+      <Grid item xs={11} sm={6} md={4}>
         {children}
       </Grid>
     </Grid>
