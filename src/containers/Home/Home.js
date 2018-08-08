@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TweetInput from '../../components/TweetInput';
-import { logout } from '../../modules/users/actions';
-import { createTweet } from '../../modules/tweets/actions';
-import * as fromUsers from '../../modules/users/reducer';
-import * as fromTweets from '../../modules/tweets/reducer';
+import { logout, getUserById } from '../../modules/users';
+import { createTweet, getTweetById, getAllTweets } from '../../modules/tweets';
 import Tweet from '../../components/Tweet';
 import Timeline from '../../components/Timeline';
 import sortByDatetime from '../../utils/datetime';
@@ -35,13 +33,12 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  activeUser: fromUsers.getUserById(state.users, state.users.active),
-  tweets: fromTweets
-    .getAllTweets(state.tweets)
+  activeUser: getUserById(state.users, state.users.active),
+  tweets: getAllTweets(state.tweets)
     .map(tweet => ({
       ...tweet,
-      repliedTweet: fromTweets.getTweetById(state.tweets, tweet.replyToId),
-      user: fromUsers.getUserById(state.users, tweet.userId),
+      repliedTweet: getTweetById(state.tweets, tweet.replyToId),
+      user: getUserById(state.users, tweet.userId),
     }))
     .sort(sortByDatetime),
 });

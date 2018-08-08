@@ -8,8 +8,7 @@ import {
   Button,
   withStyles,
 } from '@material-ui/core';
-import { login, signin } from '../../modules/users';
-import * as fromUsers from '../../modules/users/reducer';
+import { login, signin, isAuthenticated } from '../../modules/users';
 
 const styles = theme => ({
   paper: {
@@ -64,7 +63,7 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: fromUsers.isAuthenticated(state.users),
+  isAuthenticated: isAuthenticated(state.users),
 });
 
 const mapDispatchToProps = { login, signin };

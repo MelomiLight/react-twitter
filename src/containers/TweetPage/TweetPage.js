@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { logout } from '../../modules/users/actions';
-import { createTweet } from '../../modules/tweets/actions';
-import * as fromState from '../../modules';
-import * as fromUsers from '../../modules/users/reducer';
-import * as fromTweets from '../../modules/tweets/reducer';
+import { logout, getUserById } from '../../modules/users';
+import {
+  createTweet,
+  getTweetById,
+  getRepliesById,
+} from '../../modules/tweets';
+import { getTweetMeta } from '../../modules';
 import TweetInput from '../../components/TweetInput';
 import Tweet from '../../components/Tweet';
 import Timeline from '../../components/Timeline';
@@ -50,14 +52,11 @@ class TweetPage extends React.Component {
 }
 
 const mapStateToProps = (state, { match: { params } }) => ({
-  activeUser: fromUsers.getUserById(state.users, state.users.active),
-  tweet: fromState.getTweetMeta(
-    state,
-    fromTweets.getTweetById(state.tweets, params.tweetId),
+  activeUser: getUserById(state.users, state.users.active),
+  tweet: getTweetMeta(state, getTweetById(state.tweets, params.tweetId)),
+  replies: getRepliesById(state.tweets, params.tweetId).map(tweet =>
+    getTweetMeta(state, tweet),
   ),
-  replies: fromTweets
-    .getRepliesById(state.tweets, params.tweetId)
-    .map(tweet => fromState.getTweetMeta(state, tweet)),
 });
 
 const mapDispatchToProps = { createTweet, logout };

@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-import { recieveAuth } from '../../modules/users/actions';
-import * as fromUsers from '../../modules/users/reducer';
+import { recieveAuth, isAuthenticated } from '../../modules/users';
 
 class PrivateRoute extends React.Component {
   componentDidMount() {
@@ -33,7 +32,7 @@ class PrivateRoute extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: fromUsers.isAuthenticated(state.users),
+  isAuthenticated: isAuthenticated(state.users),
 });
 
 const mapDispatchToProps = { recieveAuth };
