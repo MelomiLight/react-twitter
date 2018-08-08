@@ -1,8 +1,25 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login, signin } from '../../modules/users/actions';
+import {
+  Paper,
+  Typography,
+  TextField,
+  Button,
+  withStyles,
+} from '@material-ui/core';
+import { login, signin } from '../../modules/users';
 import * as fromUsers from '../../modules/users/reducer';
+
+const styles = theme => ({
+  paper: {
+    padding: theme.spacing.unit * 5,
+  },
+  textField: {
+    marginTop: theme.spacing.unit * 5,
+    marginBottom: theme.spacing.unit * 2,
+  },
+});
 
 class Login extends React.Component {
   input = null;
@@ -19,22 +36,29 @@ class Login extends React.Component {
   };
 
   render() {
-    if (this.props.isAuthenticated) {
+    const { classes, isAuthenticated } = this.props;
+
+    if (isAuthenticated) {
       return <Redirect to="/" />;
     }
 
     return (
-      <React.Fragment>
-        <h1>Login</h1>
+      <Paper className={classes.paper}>
+        <Typography variant="display1">Login</Typography>
         <form onSubmit={this.onSubmit}>
-          <input
+          <TextField
+            required
+            fullWidth
             type="text"
             placeholder="Your username"
-            ref={ref => (this.input = ref)}
+            className={classes.textField}
+            inputRef={ref => (this.input = ref)}
           />
-          <button type="submit">Sign In</button>
+          <Button variant="outlined" type="submit">
+            Sign In
+          </Button>
         </form>
-      </React.Fragment>
+      </Paper>
     );
   }
 }
@@ -45,7 +69,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { login, signin };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Login);
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(Login),
+);

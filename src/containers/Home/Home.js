@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import TweetInput from '../../components/TweetInput';
 import { logout } from '../../modules/users/actions';
 import { createTweet } from '../../modules/tweets/actions';
-import * as fromUser from '../../modules/users/reducer';
+import * as fromUsers from '../../modules/users/reducer';
 import * as fromTweets from '../../modules/tweets/reducer';
-import Header from '../../components/Header';
 import Tweet from '../../components/Tweet';
 import Timeline from '../../components/Timeline';
+import sortByDatetime from '../../utils/datetime';
 
 class Home extends React.Component {
   onSubmit = text => {
@@ -19,19 +19,14 @@ class Home extends React.Component {
   };
 
   render() {
-    const { activeUser, logout, tweets, tweetsById } = this.props;
+    const { tweets } = this.props;
 
     return (
       <React.Fragment>
-        <Header user={activeUser} onClick={logout} />
         <TweetInput onSubmit={this.onSubmit} />
         <Timeline>
           {tweets.map(tweet => (
-            <Tweet
-              {...tweet}
-              key={tweet.id}
-              repliedTweet={tweetsById[tweet.replyToId]}
-            />
+            <Tweet {...tweet} key={tweet.id} />
           ))}
         </Timeline>
       </React.Fragment>
@@ -40,9 +35,15 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  activeUser: fromUser.getUserById(state.users, state.users.active),
-  tweets: fromTweets.getAllTweets(state.tweets),
-  tweetsById: state.tweets.byId,
+  activeUser: fromUsers.getUserById(state.users, state.users.active),
+  tweets: fromTweets
+    .getAllTweets(state.tweets)
+    .map(tweet => ({
+      ...tweet,
+      repliedTweet: fromTweets.getTweetById(state.tweets, tweet.replyToId),
+      user: fromUsers.getUserById(state.users, tweet.userId),
+    }))
+    .sort(sortByDatetime),
 });
 
 const mapDispatchToProps = { logout, createTweet };

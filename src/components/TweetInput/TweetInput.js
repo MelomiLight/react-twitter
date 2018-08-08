@@ -1,4 +1,14 @@
 import React from 'react';
+import { Paper, TextField, Button, Grid, withStyles } from '@material-ui/core';
+
+const styles = theme => ({
+  paper: {
+    padding: theme.spacing.unit * 2,
+  },
+  tweetButton: {
+    marginTop: theme.spacing.unit,
+  },
+});
 
 class TweetInput extends React.Component {
   input = React.createRef();
@@ -16,13 +26,35 @@ class TweetInput extends React.Component {
   };
 
   render() {
+    const { classes } = this.props;
+
     return (
-      <form onSubmit={this.onSubmit}>
-        <input type="text" placeholder="What's happening?" ref={this.input} />
-        <button type="submit">Tweet</button>
-      </form>
+      <Paper className={classes.paper}>
+        <form onSubmit={this.onSubmit} autoComplete="off">
+          <TextField
+            required
+            fullWidth
+            multiline
+            rows={2}
+            placeholder="What's happening?"
+            inputRef={this.input}
+          />
+          <Grid container justify="flex-end">
+            <Grid item>
+              <Button
+                variant="outlined"
+                color="primary"
+                type="submit"
+                className={classes.tweetButton}
+              >
+                Tweet
+              </Button>
+            </Grid>
+          </Grid>
+        </form>
+      </Paper>
     );
   }
 }
 
-export default TweetInput;
+export default withStyles(styles)(TweetInput);

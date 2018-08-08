@@ -1,5 +1,14 @@
 import React from 'react';
+import { withStyles } from '@material-ui/core';
 
-const Timeline = ({ children }) => <ul>{children}</ul>;
+const styles = theme => ({
+  timeline: {
+    padding: 0,
+  },
+});
 
-export default Timeline;
+const Timeline = ({ classes, children }) => (
+  <ul className={classes.timeline}>{children}</ul>
+);
+
+export default withStyles(styles)(Timeline);
