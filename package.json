@@ -1,8 +1,8 @@
 {
-  "name": "twitter-react",
+  "name": "react-twitter",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://denysdovhan.com/twitter-react",
+  "homepage" : "http://denysdovhan.com/react-twitter",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
