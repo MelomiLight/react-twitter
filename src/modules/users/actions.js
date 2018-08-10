@@ -33,14 +33,13 @@ export const login = username => (dispatch, getState) => {
 
   dispatch({ type: LOGIN, username });
 
-  return Promise.resolve(fromUsers.getUserIdByUsername(users, username))
-    .then(userId => {
-      if (userId) {
-        return dispatch(signin(userId));
-      }
-      return dispatch(signup(username));
-    })
-    .catch(reason => alert(`Failed to sign in! ${reason}`));
+  const userId = fromUsers.getUserIdByUsername(users, username);
+
+  if (userId) {
+    return dispatch(signin(userId));
+  }
+
+  return dispatch(signup(username));
 };
 
 export const logout = () => ({
