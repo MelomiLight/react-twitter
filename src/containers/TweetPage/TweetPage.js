@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { logout, getUserById } from '../../modules/users';
+import { getUserById } from '../../modules/users';
 import {
   createTweet,
   getTweetById,
@@ -28,7 +28,7 @@ class TweetPage extends React.Component {
   };
 
   render() {
-    const { tweet, replies, activeUser, logout } = this.props;
+    const { tweet, replies, activeUser } = this.props;
     const hasReplies = replies.length > 0;
 
     if (!tweet) {
@@ -59,7 +59,7 @@ const mapStateToProps = (state, { match: { params } }) => ({
   ),
 });
 
-const mapDispatchToProps = { createTweet, logout };
+const mapDispatchToProps = { createTweet };
 
 export default connect(
   mapStateToProps,
