@@ -1,4 +1,5 @@
 import React from 'react';
+import { Typography, Grid } from '@material-ui/core';
 
 class ErrorBoundary extends React.Component {
   state = {
@@ -18,19 +19,23 @@ class ErrorBoundary extends React.Component {
     }
 
     return (
-      <div>
-        <h1>Woops :( </h1>
-        <p>Looks like we have run into troubles</p>
-        <pre
-          style={{
-            whiteSpace: 'pre-wrap',
-            overflow: 'scroll',
-            height: 300,
-          }}
-        >
-          {info.componentStack}
-        </pre>
-      </div>
+      <Grid container justify="center">
+        <Grid item xs={11} sm={6} md={4}>
+          <Typography variant="display3">Woops :(</Typography>
+          <Typography paragraph variant="subheading">
+            Looks like we have run into troubles
+          </Typography>
+          <pre
+            style={{
+              whiteSpace: 'pre-wrap',
+              overflow: 'scroll',
+              height: 300,
+            }}
+          >
+            {info.componentStack}
+          </pre>
+        </Grid>
+      </Grid>
     );
   }
 }
