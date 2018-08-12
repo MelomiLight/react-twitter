@@ -1,12 +1,12 @@
 import * as actions from './actions';
 import { combineReducers } from 'redux';
 
-const initialState = {
+export const initialState = {
   allIds: [],
   byId: {},
 };
 
-function allIds(state = initialState.allIds, action) {
+export function allIds(state = initialState.allIds, action) {
   switch (action.type) {
     case actions.CREATE_TWEET:
       return [...state, action.payload.id];
@@ -15,7 +15,7 @@ function allIds(state = initialState.allIds, action) {
   }
 }
 
-function byId(state = initialState.byId, action) {
+export function byId(state = initialState.byId, action) {
   switch (action.type) {
     case actions.CREATE_TWEET:
       return {
