@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page404 renders correctly 1`] = `
+Array [
+  <h1
+    className="MuiTypography-root-2 MuiTypography-display4-3"
+>
+    404
+</h1>,
+  <h1
+    className="MuiTypography-root-2 MuiTypography-headline-7"
+>
+    We could not find a page you are looking for :(
+</h1>,
+]
+`;

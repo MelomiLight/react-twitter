@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timeline renders correctly 1`] = `
+<ul
+  className="Timeline-timeline-1"
+>
+  <li>
+    tweet
+  </li>
+</ul>
+`;

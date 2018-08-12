@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tweet renders correctly 1`] = `
+<li
+  className="MuiPaper-root-6 MuiPaper-elevation1-9 MuiPaper-rounded-7 MuiCard-root-5 Tweet-card-1"
+>
+  <div
+    className="MuiCardHeader-root-33"
+  >
+    <div
+      className="MuiCardHeader-avatar-34"
+    >
+      <div
+        className="MuiAvatar-root-39 MuiAvatar-colorDefault-40"
+        style={
+          Object {
+            "backgroundColor": "#3f51b5",
+          }
+        }
+      >
+        u
+      </div>
+    </div>
+    <div
+      className="MuiCardHeader-content-36"
+    >
+      <span
+        className="MuiTypography-root-42 MuiTypography-body2-50 MuiCardHeader-title-37"
+      >
+        user2
+      </span>
+      <span
+        className="MuiTypography-root-42 MuiTypography-body2-50 MuiTypography-colorTextSecondary-65 MuiCardHeader-subheader-38"
+      />
+    </div>
+  </div>
+  <div
+    className="MuiCardContent-root-67 Tweet-content-3"
+  >
+    <h3
+      className="MuiTypography-root-42 MuiTypography-subheading-49"
+    >
+      <div>
+        <p>
+          Hello, world!
+        </p>
+      </div>
+    </h3>
+  </div>
+  <div
+    className="MuiCardActions-root-68"
+  />
+</li>
+`;
+
+exports[`Tweet renders highlighted tweet 1`] = `
+<div
+  className="MuiPaper-root-6 MuiPaper-elevation8-16 MuiPaper-rounded-7 MuiCard-root-5 Tweet-card-1"
+>
+  <div
+    className="MuiCardHeader-root-33"
+  >
+    <div
+      className="MuiCardHeader-avatar-34"
+    >
+      <div
+        className="MuiAvatar-root-39 MuiAvatar-colorDefault-40"
+        style={
+          Object {
+            "backgroundColor": "#3f51b5",
+          }
+        }
+      >
+        u
+      </div>
+    </div>
+    <div
+      className="MuiCardHeader-content-36"
+    >
+      <span
+        className="MuiTypography-root-42 MuiTypography-body2-50 MuiCardHeader-title-37"
+      >
+        user2
+      </span>
+      <span
+        className="MuiTypography-root-42 MuiTypography-body2-50 MuiTypography-colorTextSecondary-65 MuiCardHeader-subheader-38"
+      />
+    </div>
+  </div>
+  <div
+    className="MuiCardContent-root-67 Tweet-content-3"
+  >
+    <h1
+      className="MuiTypography-root-42 MuiTypography-display1-46"
+    >
+      <div>
+        <p>
+          Hello, world!
+        </p>
+      </div>
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`Tweet renders reply 1`] = `
+<li
+  className="MuiPaper-root-6 MuiPaper-elevation1-9 MuiPaper-rounded-7 MuiCard-root-5 Tweet-card-1"
+>
+  <div
+    className="MuiCardHeader-root-33"
+  >
+    <div
+      className="MuiCardHeader-avatar-34"
+    >
+      <div
+        className="MuiAvatar-root-39 MuiAvatar-colorDefault-40"
+        style={
+          Object {
+            "backgroundColor": "#3f51b5",
+          }
+        }
+      >
+        u
+      </div>
+    </div>
+    <div
+      className="MuiCardHeader-content-36"
+    >
+      <span
+        className="MuiTypography-root-42 MuiTypography-body2-50 MuiCardHeader-title-37"
+      >
+        user2
+      </span>
+      <span
+        className="MuiTypography-root-42 MuiTypography-body2-50 MuiTypography-colorTextSecondary-65 MuiCardHeader-subheader-38"
+      />
+    </div>
+  </div>
+  <div
+    className="MuiCardContent-root-67 Tweet-content-3"
+  >
+    <span
+      className="MuiTypography-root-42 MuiTypography-caption-52"
+    >
+      In reply to
+       
+    </span>
+    <h3
+      className="MuiTypography-root-42 MuiTypography-subheading-49"
+    >
+      <div>
+        <p>
+          Hello!
+        </p>
+      </div>
+    </h3>
+  </div>
+  <div
+    className="MuiCardActions-root-68"
+  />
+</li>
+`;

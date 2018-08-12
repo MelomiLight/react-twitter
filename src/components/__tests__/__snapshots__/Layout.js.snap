@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders correctly 1`] = `
+<main
+  className="Layout-root-1"
+>
+  <h1>
+    Header
+  </h1>
+  <div
+    className="MuiGrid-container-3 MuiGrid-justify-xs-center-20 Layout-page-2"
+  >
+    <div
+      className="MuiGrid-item-4 MuiGrid-grid-xs-11-42 MuiGrid-grid-sm-6-51 MuiGrid-grid-md-4-63"
+    >
+      <p>
+        children
+      </p>
+    </div>
+  </div>
+</main>
+`;

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TweetInput renders correctly 1`] = `
+<div
+  className="MuiPaper-root-3 MuiPaper-elevation2-7 MuiPaper-rounded-4 TweetInput-paper-1"
+>
+  <form
+    autoComplete="off"
+    onSubmit={[Function]}
+  >
+    <div
+      aria-describedby={undefined}
+      className="MuiFormControl-root-30 MuiFormControl-fullWidth-33"
+    >
+      <div
+        className="MuiInput-root-34 MuiInput-fullWidth-41 MuiInput-formControl-35 MuiInput-multiline-40 MuiInput-underline-38"
+      >
+        <textarea
+          aria-invalid={false}
+          autoComplete={undefined}
+          autoFocus={undefined}
+          className="MuiInput-input-42 MuiInput-inputMultiline-44"
+          defaultValue={undefined}
+          disabled={false}
+          id={undefined}
+          name={undefined}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyDown={undefined}
+          onKeyUp={undefined}
+          placeholder="What's happening?"
+          readOnly={undefined}
+          required={true}
+          rows={2}
+          type="text"
+          value={undefined}
+        />
+      </div>
+    </div>
+    <div
+      className="MuiGrid-container-47 MuiGrid-justify-xs-flex-end-65"
+    >
+      <div
+        className="MuiGrid-item-48"
+      >
+        <button
+          className="MuiButtonBase-root-168 MuiButton-root-144 MuiButton-text-146 MuiButton-textPrimary-147 MuiButton-outlined-152 TweetInput-tweetButton-2"
+          disabled={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex="0"
+          type="submit"
+        >
+          <span
+            className="MuiButton-label-145"
+          >
+            Tweet
+          </span>
+          <span
+            className="MuiTouchRipple-root-171"
+          />
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+`;

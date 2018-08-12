@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary should render correctly 1`] = `
+<h1>
+  Heading
+</h1>
+`;
+
+exports[`ErrorBoundary should render with error 1`] = `
+<div
+  className="MuiGrid-container-1 MuiGrid-justify-xs-center-18"
+>
+  <div
+    className="MuiGrid-item-2 MuiGrid-grid-xs-11-40 MuiGrid-grid-sm-6-49 MuiGrid-grid-md-4-61"
+  >
+    <h1
+      className="MuiTypography-root-98 MuiTypography-display3-100"
+    >
+      Woops :(
+    </h1>
+    <p
+      className="MuiTypography-root-98 MuiTypography-subheading-105 MuiTypography-paragraph-116"
+    >
+      Looks like we have run into troubles
+    </p>
+    <pre
+      style={
+        Object {
+          "height": 300,
+          "overflow": "scroll",
+          "whiteSpace": "pre-wrap",
+        }
+      }
+    >
+      
+          in Broken (at ErrorBoundary.js:22)
+          in ErrorBoundary (at ErrorBoundary.js:21)
+    </pre>
+  </div>
+</div>
+`;
