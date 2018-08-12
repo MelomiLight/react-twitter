@@ -1,13 +1,13 @@
 import * as actions from './actions';
 import { combineReducers } from 'redux';
 
-const initialState = {
+export const initialState = {
   active: null, // id of current user
   allIds: [],
   byId: {},
 };
 
-function active(state = initialState.active, action) {
+export function active(state = initialState.active, action) {
   switch (action.type) {
     case actions.SIGNIN:
     case actions.SIGNUP:
@@ -19,7 +19,7 @@ function active(state = initialState.active, action) {
   }
 }
 
-function allIds(state = initialState.allIds, action) {
+export function allIds(state = initialState.allIds, action) {
   switch (action.type) {
     case actions.SIGNUP:
       return [...state, action.payload.id];
@@ -31,7 +31,7 @@ function allIds(state = initialState.allIds, action) {
   }
 }
 
-function byId(state = initialState.byId, action) {
+export function byId(state = initialState.byId, action) {
   switch (action.type) {
     case actions.SIGNUP:
       return {
