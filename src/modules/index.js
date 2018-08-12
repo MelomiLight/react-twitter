@@ -5,7 +5,7 @@ import history from '../utils/history';
 import users, * as fromUsers from './users';
 import tweets, * as fromTweets from './tweets';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   users,
   tweets,
 });
