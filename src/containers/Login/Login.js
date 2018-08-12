@@ -20,7 +20,7 @@ const styles = theme => ({
   },
 });
 
-class Login extends React.Component {
+export class Login extends React.Component {
   input = null;
 
   onSubmit = event => {

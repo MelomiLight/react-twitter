@@ -7,7 +7,7 @@ import Tweet from '../../components/Tweet';
 import Timeline from '../../components/Timeline';
 import sortByDatetime from '../../utils/datetime';
 
-class Home extends React.Component {
+export class Home extends React.Component {
   onSubmit = text => {
     const {
       createTweet,

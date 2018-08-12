@@ -23,7 +23,7 @@ const styles = theme => ({
   },
 });
 
-const Header = ({ classes, isAuthenticated, user, onLogout }) => (
+export const Header = ({ classes, isAuthenticated, user, onLogout }) => (
   <AppBar>
     <Toolbar>
       {user && (

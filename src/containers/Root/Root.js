@@ -12,7 +12,7 @@ import Home from '../Home';
 import TweetPage from '../TweetPage';
 import Login from '../Login';
 
-class Root extends React.Component {
+export class Root extends React.Component {
   render() {
     const { isAuthenticated } = this.props;
 

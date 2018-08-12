@@ -12,7 +12,7 @@ import TweetInput from '../../components/TweetInput';
 import Tweet from '../../components/Tweet';
 import Timeline from '../../components/Timeline';
 
-class TweetPage extends React.Component {
+export class TweetPage extends React.Component {
   onSubmit = text => {
     const {
       match: { params },

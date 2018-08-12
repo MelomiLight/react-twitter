@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
 import { recieveAuth, isAuthenticated } from '../../modules/users';
 
-class PrivateRoute extends React.Component {
+export class PrivateRoute extends React.Component {
   componentDidMount() {
     this.props.recieveAuth();
   }
