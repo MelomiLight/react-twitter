@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Typography, Button, withStyles } from '@material-ui/core';
 
@@ -9,6 +10,10 @@ const styles = theme => ({
 });
 
 class Page404 extends React.Component {
+  static propTypes = {
+    classes: PropTypes.object.isRequired,
+  };
+
   render() {
     const { classes } = this.props;
 

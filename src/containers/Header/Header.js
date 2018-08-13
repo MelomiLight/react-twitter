@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
@@ -52,6 +53,16 @@ export const Header = ({ classes, isAuthenticated, user, onLogout }) => (
     </Toolbar>
   </AppBar>
 );
+
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  user: PropTypes.shape({
+    id: PropTypes.string,
+    username: PropTypes.string.isRequired,
+  }).isRequired,
+  onLogout: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   isAuthenticated: isAuthenticated(state.users),

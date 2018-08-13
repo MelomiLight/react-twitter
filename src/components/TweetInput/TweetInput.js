@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Paper, TextField, Button, Grid, withStyles } from '@material-ui/core';
 
 const styles = theme => ({
@@ -11,6 +12,15 @@ const styles = theme => ({
 });
 
 class TweetInput extends React.Component {
+  static propTypes = {
+    classes: PropTypes.object.isRequired,
+    onSubmit: PropTypes.func,
+  };
+
+  static defaultProps = {
+    onSubmit: () => {},
+  };
+
   input = React.createRef();
 
   onSubmit = event => {

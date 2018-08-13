@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { getUserById } from '../../modules/users';
@@ -13,6 +14,21 @@ import Tweet from '../../components/Tweet';
 import Timeline from '../../components/Timeline';
 
 export class TweetPage extends React.Component {
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        tweetId: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    activeUser: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      username: PropTypes.string.isRequired,
+    }),
+    tweet: PropTypes.object.isRequired,
+    replies: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    createTweet: PropTypes.func.isRequired,
+  };
+
   onSubmit = text => {
     const {
       match: { params },

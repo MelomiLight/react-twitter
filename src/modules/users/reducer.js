@@ -54,7 +54,7 @@ export default combineReducers({
 
 // Selectors
 // Probably better to use Reselect
-export const isAuthenticated = state => state.active;
+export const isAuthenticated = state => !!state.active;
 export const getUserById = (state, id) => state.byId[id];
 export const getUserIdByUsername = (state, username) =>
   Object.keys(state.byId).find(id => state.byId[id].username === username);

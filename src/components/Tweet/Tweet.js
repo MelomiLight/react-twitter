@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import {
@@ -116,6 +117,28 @@ const Tweet = ({
       )}
     </Card>
   );
+};
+
+Tweet.propTypes = {
+  classes: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  user: PropTypes.shape({
+    id: PropTypes.string,
+    username: PropTypes.string.isRequired,
+  }).isRequired,
+  replyToId: PropTypes.string,
+  repliedTweet: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+  }),
+  highlighted: PropTypes.bool,
+};
+
+Tweet.defaultProps = {
+  replyToId: null,
+  repliedTweet: null,
+  highlighted: false,
 };
 
 export default withStyles(styles)(Tweet);

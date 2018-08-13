@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TweetInput from '../../components/TweetInput';
 import { logout, getUserById } from '../../modules/users';
@@ -8,6 +9,15 @@ import Timeline from '../../components/Timeline';
 import sortByDatetime from '../../utils/datetime';
 
 export class Home extends React.Component {
+  static propTypes = {
+    activeUser: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      username: PropTypes.string,
+    }).isRequired,
+    tweets: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    createTweet: PropTypes.func.isRequired,
+  };
+
   onSubmit = text => {
     const {
       createTweet,

@@ -49,11 +49,9 @@ describe('tweets reducer', () => {
 describe('users selectors', () => {
   it('returns active user', () => {
     const user = { id: '123', username: 'user' };
-    const state = {
-      active: user,
-    };
 
-    expect(isAuthenticated(state)).toEqual(user);
+    expect(isAuthenticated({ active: user })).toEqual(true);
+    expect(isAuthenticated({ active: null })).toEqual(false);
   });
 
   it('gets user by id', () => {

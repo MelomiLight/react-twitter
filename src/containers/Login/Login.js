@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {
@@ -8,7 +9,7 @@ import {
   Button,
   withStyles,
 } from '@material-ui/core';
-import { login, signin, isAuthenticated } from '../../modules/users';
+import { login, isAuthenticated } from '../../modules/users';
 
 const styles = theme => ({
   paper: {
@@ -21,6 +22,12 @@ const styles = theme => ({
 });
 
 export class Login extends React.Component {
+  static propTypes = {
+    classes: PropTypes.object.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
+    login: PropTypes.func.isRequired,
+  };
+
   input = null;
 
   onSubmit = event => {
@@ -66,7 +73,7 @@ const mapStateToProps = state => ({
   isAuthenticated: isAuthenticated(state.users),
 });
 
-const mapDispatchToProps = { login, signin };
+const mapDispatchToProps = { login };
 
 export default withStyles(styles)(
   connect(

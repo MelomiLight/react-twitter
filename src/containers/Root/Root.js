@@ -12,31 +12,20 @@ import Home from '../Home';
 import TweetPage from '../TweetPage';
 import Login from '../Login';
 
-export class Root extends React.Component {
-  render() {
-    const { isAuthenticated } = this.props;
-
-    return (
-      <ErrorBoundary>
-        <ConnectedRouter history={history}>
-          <Layout>
-            <Switch>
-              <PrivateRoute
-                exact
-                path="/"
-                component={Home}
-                isAuthenticated={isAuthenticated}
-              />
-              <Route path="/tweet/:tweetId" component={TweetPage} />
-              <Route path="/login" component={Login} />
-              <Route path="/404" component={Page404} />
-              <Redirect to="/404" />
-            </Switch>
-          </Layout>
-        </ConnectedRouter>
-      </ErrorBoundary>
-    );
-  }
-}
+const Root = () => (
+  <ErrorBoundary>
+    <ConnectedRouter history={history}>
+      <Layout>
+        <Switch>
+          <PrivateRoute exact path="/" component={Home} />
+          <Route path="/tweet/:tweetId" component={TweetPage} />
+          <Route path="/login" component={Login} />
+          <Route path="/404" component={Page404} />
+          <Redirect to="/404" />
+        </Switch>
+      </Layout>
+    </ConnectedRouter>
+  </ErrorBoundary>
+);
 
 export default Root;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withStyles, CssBaseline, Grid } from '@material-ui/core';
 import Header from '../../containers/Header';
 
@@ -22,5 +23,17 @@ const Layout = ({ classes, children }) => (
     </Grid>
   </main>
 );
+
+Layout.propTypes = {
+  classes: PropTypes.object.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
+};
+
+Layout.defaultProps = {
+  children: null,
+};
 
 export default withStyles(styles)(Layout);

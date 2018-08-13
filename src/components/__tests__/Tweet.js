@@ -12,7 +12,7 @@ describe('Tweet', () => {
   const tweet = {
     id: '123',
     text: 'Hello, world!',
-    createdAt: 1,
+    createdAt: '1',
     user: {
       id: '321',
       username: 'user2',
@@ -22,7 +22,7 @@ describe('Tweet', () => {
   const reply = {
     id: '456',
     text: 'Hello!',
-    createdAt: 2,
+    createdAt: '2',
     user: {
       id: '654',
       username: 'user2',
