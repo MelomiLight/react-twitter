@@ -21,11 +21,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * `hysky` — useful tool for adding git-hooks.
 * `lint-staged` — easier linting for staged files.
 * `prettier` — tool for code formatting.
+* `prop-types` — for checking component's properties.
+* `react-test-renderer` — for rendering React components in snapshots. Enzyme would be an overkill here.
+* `redux-mock-store` — for mocking Redux store in tests.
 
 ## To-do
 
-* Add tests.
-* Add `prop-types`.
+* Add tests for containers.
 
 ## Screenshot
 
